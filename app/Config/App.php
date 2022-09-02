@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/CodeIgniter/public/';
+    public $baseURL = 'http://localhost/weekly_todos/public/';
 
     /**
      * --------------------------------------------------------------------------
