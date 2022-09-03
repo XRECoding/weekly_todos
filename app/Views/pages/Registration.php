@@ -1,9 +1,21 @@
-<div class="card bg-light mt-4">
-    <legend class="card-header">
-        <div class="d-flex justify-content-between">
-            <div class="h5"><strong><h1>Registriervorgang</h1></strong></div>
+<div class="card bg-light">
+    <div class="card-header">
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <h5 class="mb-0">Weekly Todos</h5>
+            <h6>Registriervorgang</h6>
         </div>
-    </legend>
+
+        <div>
+            <i class="bi bi-check-circle" style="font-size:36px;"></i>
+            <i class="bi bi-dash-circle"style="font-size:36px;"></i>
+        </div>
+    </div>
+
+
+        
+    </div>
 
 
     <div class="card-body">

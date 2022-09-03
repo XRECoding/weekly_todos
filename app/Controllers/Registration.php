@@ -6,7 +6,7 @@ class Registration extends BaseController {
         $data['title'] = 'Registration';
 
         echo view('templates/header', $data);
-        echo view('pages/Registration');
+        echo view('pages/test3');
         echo view('templates/Footer');
     }
 }
