@@ -5,6 +5,8 @@
     <!-- Title -->
     <?php echo '<title>', $title, '</title>'; ?>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Bootstrap -->
     <link href="https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css"  rel="stylesheet">
@@ -16,4 +18,4 @@
 
 <!-- Start Body ---------------------------------------------------------------------------------------------------------------->
 <body>
-<div class="container-fluid">
+    <div class="container-fluid">
