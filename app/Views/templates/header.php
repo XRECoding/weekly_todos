@@ -14,6 +14,9 @@
     <script src="https://unpkg.com/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
 
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/9678e46865.js" crossorigin="anonymous"></script>
+
 </head>
 <!-- End Header ---------------------------------------------------------------------------------------------------------------->
 
