@@ -1,9 +1,8 @@
-<div class="d-flex justify-content-between p-2 border">
+<div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
     <div>
         <h5 class="mb-0">Weekly Todos</h5>
         <h6>Registriervorgang</h6>
     </div>
-
     <div class="align-self-center">
         <i class="bi bi-check-circle" style="font-size:36px;"></i>
         <i class="bi bi-dash-circle" style="font-size:36px;"></i>

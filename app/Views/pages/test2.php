@@ -5,7 +5,6 @@
                 <h5 class="mb-0">Weekly Todos</h5>
                 <h6>Registriervorgang</h6>
             </div>
-
             <div>
                 <i class="bi bi-check-circle" style="font-size:36px;"></i>
                 <i class="bi bi-dash-circle"style="font-size:36px;"></i>
