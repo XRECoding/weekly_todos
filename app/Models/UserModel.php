@@ -10,7 +10,7 @@ class UserModel extends Model {
         get()->getRowArray();
     }
 
-    public function createUser() {
+    public function insertUser() {
         $this->db->
         table('users')->
         insert(array(
@@ -20,7 +20,7 @@ class UserModel extends Model {
     }
 
     public function updateUser() {
-        
+
     }
 
     public function deleteUser() {

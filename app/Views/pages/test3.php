@@ -13,7 +13,7 @@
 <div class="container-flex border rounded-lg m-3 p-3">
     <div class="form-group">
         <label for="email">E-Mail Adresse:</label>
-        <input id="email" name="email" type="text" class="form-control "/>
+        <input id="email" name="email" type="text" class="form-control"/>
     </div>
     <div class="form-group">
         <label for="password1">Passwort erstellen:</label>
