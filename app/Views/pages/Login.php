@@ -18,12 +18,12 @@
     <div class="container-flex border rounded-lg m-3 p-3">
         <div class="form-group">
             <label for="email">E-Mail Adresse:</label>
-            <input id="email" name="email" type="text" class="form-control"/>
+            <input id="email" name="email" type="text" class="form-control <?=(isset($error['email'])) ? 'is-invalid' : ''?>" value="<?=(isset($_POST['email'])) ? $_POST['email'] : ''?>"/>
             <div class="invalid-feedback"><?=(isset($error['email'])) ? $error['email'] : ''?></div>
         </div>
         <div class="form-group">
             <label for="password">Passwort:</label>
-            <input id="password" name="password" type="password" class="form-control"/>
+            <input id="password" name="password" type="password" class="form-control <?=(isset($error['password'])) ? 'is-invalid' : ''?>" value="<?=(isset($_POST['password'])) ? $_POST['password'] : ''?>"/>
             <div class="invalid-feedback"><?=(isset($error['password'])) ? $error['password'] : ''?></div>
         </div>
     </div>

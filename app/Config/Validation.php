@@ -43,16 +43,18 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
 
     public $login = [
-        'email'     => 'valid_email',
-        'password'  => 'required'
+        'email'     => 'required|valid_email',
+        'password'  => 'required|matches[correct]'
     ];
 
     public $login_errors = [
         'email' => [
-            'valid_email' => 'Sie müssen Ihre E-Mail angeben.',
+            'required'      => 'Sie müssen Ihre E-Mail angeben.',
+            'valid_email'   => 'Sie müssen eine gültige E-Mail angeben.'
         ],
         'password' => [
-            'required' => 'Sie müssen Ihr Passwort angeben.',
+            'required'      => 'Sie müssen Ihr Passwort angeben.',
+            'matches'       => "Das Passwort passt nicht zur Email"
         ],
     ];
 

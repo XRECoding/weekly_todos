@@ -16,7 +16,7 @@ class Registration extends BaseController {
         if (isset($_POST['save'])) {
             if ($this->validation->run($_POST, 'registration')) {
                 $this->UserModel->insertUser();
-                echo die(); echo "<h1>You did it!</h1>";
+                echo "<h1>You did it!</h1>"; echo die();
                 #$this->session->set('loggedin', TRUE);
                 # return redirect()->to(base_url().'/Index');
                 
