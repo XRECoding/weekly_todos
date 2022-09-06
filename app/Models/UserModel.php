@@ -15,7 +15,7 @@ class UserModel extends Model {
         table('users')->
         insert(array(
             'email'     => $_POST['email'],
-            'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT, ["cost"=>10])
+            'password'  => $_POST['password1']
         ));
     }
 

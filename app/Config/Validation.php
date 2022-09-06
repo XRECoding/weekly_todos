@@ -41,4 +41,43 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+
+    public $login = [
+        'email'     => 'valid_email',
+        'password'  => 'required'
+    ];
+
+    public $login_errors = [
+        'email' => [
+            'valid_email' => 'Sie müssen Ihre E-Mail angeben.',
+        ],
+        'password' => [
+            'required' => 'Sie müssen Ihr Passwort angeben.',
+        ],
+    ];
+
+
+
+    public $registration = [
+        'email'     => 'required|valid_email|is_unique[users.email]',
+        'password1' => 'required|min_length[5]',
+        'password2' => 'required|matches[password1]'
+    ];
+
+    public $registration_errors = [
+        'email'     => [
+            'required'      => 'Sie müssen einen E-Mail angeben.',
+            'valid_email'   => 'Sie müssen eine gültige E-Mail angeben.',
+            'is_unique'     => 'Diese E-mail ist bereits vergeben.',
+        ],
+        'password1' => [
+            'required'      => 'Sie müssen ein Passwort erstellen.',
+            'min_length'    => 'Ihr Passwort muss mindestens 5 Stellen lang sein.',
+        ],
+        'password2' => [
+            'required'      => 'Sie müssen Ihr Passwort wiederholen.',
+            'matches'       => 'Das wiederholte Passwort stimmt nicht mit der erstellen überein.',
+        ],
+    ];
+
 }
