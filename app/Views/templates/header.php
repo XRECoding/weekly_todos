@@ -6,6 +6,7 @@
     <!-- Title -->
     <?php echo '<title>', $title, '</title>'; ?>
 
+    <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap -->
