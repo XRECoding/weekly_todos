@@ -5,11 +5,11 @@
             <h6>Anmeldevorgang</h6>
         </div>
         <div class="align-self-center">
-            <button type="create" name="create" id="btnCreate" class="btn m-0 p-0">
+            <button class="btn m-0 p-0" name="signup" id="signup">
                 <i class="bi bi-plus-circle" style="font-size:36px;"></i>
             </button>
-            <button type="save" name="save" id="btnSave" class="btn m-0 p-0">
-            <i class="bi bi-check-circle" style="font-size:36px;"></i>
+            <button class="btn m-0 p-0" name="signin" id="signin" >
+                <i class="bi bi-check-circle" style="font-size:36px;"></i>
             </button>
         </div>
     </div>

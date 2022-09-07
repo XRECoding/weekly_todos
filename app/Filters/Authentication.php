@@ -8,7 +8,7 @@ use CodeIgniter\Filters\FilterInterface;
 class Authentication implements FilterInterface {
 
     public function before(RequestInterface $request, $arguments = null) {
-        if (!session()->get('loggedin') == true) {
+        if (session()->get('email') == null) {
             return redirect()->to(base_url().'/Login/index');
         }
     }

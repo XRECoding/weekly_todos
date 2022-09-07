@@ -13,13 +13,11 @@ class Registration extends BaseController {
         helper("form");
         $data['title'] = 'Registration';
 
-        if (isset($_POST['save'])) {
+        if (isset($_POST['create'])) {
             if ($this->validation->run($_POST, 'registration')) {
                 $this->UserModel->insertUser();
-                echo "<h1>You did it!</h1>"; echo die();
-                #$this->session->set('loggedin', TRUE);
+                $this->session->set($this->UserModel->selectUser());
                 # return redirect()->to(base_url().'/Index');
-                
             } else {
                 $data['error'] = $this->validation->getErrors();
             }

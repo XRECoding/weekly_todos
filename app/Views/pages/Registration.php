@@ -5,10 +5,10 @@
             <h6>Registriervorgang</h6>
         </div>
         <div class="align-self-center">
-            <button type="cancel" name="cancel" id="btnCancel" class="btn m-0 p-0">
+            <button name="cancel" id="cancel" class="btn m-0 p-0">
                 <i class="bi bi-dash-circle" style="font-size:36px;"></i>
             </button>
-            <button type="save" name="save" id="btnSave" class="btn m-0 p-0">
+            <button name="create" id="create" class="btn m-0 p-0">
                 <i class="bi bi-check-circle" style="font-size:36px;"></i>
             </button>
         </div>
@@ -31,6 +31,5 @@
             <input id="password2" name="password2" type="password" class="form-control <?=(isset($error['password2'])) ? 'is-invalid' : ''?>"/>
             <div class="invalid-feedback"><?=(isset($error['password2'])) ? $error['password2'] : ''?></div>
         </div>
-
     </div>
 <?php echo form_close(); ?>

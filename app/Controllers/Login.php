@@ -13,18 +13,16 @@ class Login extends BaseController {
         helper("form");
         $data['title'] = 'Login';
 
-        if (isset($_POST['save'])) {
+        if (isset($_POST['signin'])) {
             $_POST["correct"] = $this->verifyer();
 
             if ($this->validation->run($_POST, 'login')) {
-                $this->session->set('loggedin', TRUE);
                 $this->session->set($this->UserModel->selectUser());
-                var_dump($this->session->get("email")); echo die();
                 #return redirect()->to(base_url().'/Index');
             } else {
                 $data['error'] = $this->validation->getErrors();
             }
-        } else if (isset($_POST['create'])) {
+        } else if (isset($_POST['signup'])) {
             return redirect()->to(base_url().'/Registration');
         }
         
