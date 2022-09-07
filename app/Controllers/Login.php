@@ -17,10 +17,10 @@ class Login extends BaseController {
             $_POST["correct"] = $this->verifyer();
 
             if ($this->validation->run($_POST, 'login')) {
-                #$this->session->set('loggedin', TRUE);
-                #$this->session->set($this->UserModel->getUser());
+                $this->session->set('loggedin', TRUE);
+                $this->session->set($this->UserModel->selectUser());
+                var_dump($this->session->get("email")); echo die();
                 #return redirect()->to(base_url().'/Index');
-                echo var_dump($_POST); echo die();
             } else {
                 $data['error'] = $this->validation->getErrors();
             }
