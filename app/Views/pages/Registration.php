@@ -1,20 +1,20 @@
 <?= form_open('Registration/index', array('role' => 'form')) ?>
     <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
         <div>
-            <h5 class="mb-0">Weekly Todos</h5>
-            <h6>Registriervorgang</h6>
+            <p class="font-weight-bold mb-0">Weekly Todos</p>
+            <p class="font-weight-normal mb-0">Registrierung</p>
         </div>
         <div class="align-self-center">
             <button name="cancel" id="cancel" class="btn m-0 p-0">
                 <i class="bi bi-dash-circle" style="font-size:36px;"></i>
             </button>
-            <button name="create" id="create" class="btn m-0 p-0">
+            <button name="create" id="create" class="btn  m-0 p-0">
                 <i class="bi bi-check-circle" style="font-size:36px;"></i>
             </button>
         </div>
     </div>
 
-
+    
     <div class="container-flex border rounded-lg m-3 p-3">
         <div class="form-group">
             <label for="email">E-Mail Adresse:</label>
