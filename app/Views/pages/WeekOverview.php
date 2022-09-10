@@ -17,9 +17,9 @@
 <!-- body -->
 <div class="container-flex border p-3 gap-3">
     <form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
-        <button type="submit" name="monday" style="width: 100%; height: 10%" ><b>Montag</b> <br>den <?php echo $monday ?></button>
+        <button class="btn btn-outline-dark btn-lg" type="submit" name="monday" style="width: 100%; height: 10%" ><b>Montag</b> <br>den <?php echo $monday ?></button>
         &nbsp;
-        <button type="submit" name="tuesday" style="width: 100%; height: 10%"><b>Dienstag</b> <br>den <?php echo $tuesday ?></button>
+        <button class="btn btn-outline-dark" type="submit" name="tuesday" style="width: 100%; height: 10%"><b>Dienstag</b> <br>den <?php echo $tuesday ?></button>
         &nbsp;
         <button type="submit" name="wednesday" style="width: 100%; height: 10%"><b>Mittwoch</b> <br>den <?php echo $wednesday ?></button>
         &nbsp;
