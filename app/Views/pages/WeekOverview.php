@@ -18,8 +18,8 @@
 <div class="container-flex border p-3 gap-3">
     <form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
     
-        <!-- <button class="btn btn-secondary btn-lg btn-block">Montag <br> den <?php echo $monday ?></button> -->
-        <!-- <button class="btn btn-secondary btn-lg btn-block text-left">Dienstag <br> den <?php echo $tuesday ?></button> -->
+        <button class="btn-lg btn-block"><b>Montag</b> <br> den <?php echo $monday ?></button>
+        <button class="btn btn-secondary btn-lg btn-block text-left">Dienstag <br> den <?php echo $tuesday ?></button>
 
         <button type="submit" name="monday" style="width: 100%; height: 10%" ><b>Montag</b> <br>den <?php echo $monday ?></button>
         &nbsp;
