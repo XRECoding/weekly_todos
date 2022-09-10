@@ -1,35 +1,25 @@
 <!-- header -->
 <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
-    <div>
-        <form method="post" action="<?php echo base_url('index.php/WeekOverview/redirectCalendar') ?>">
-            <button style="width: 100%; border: none; background: none">
-                <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
-                <h6>vom <?php echo $monday ?> bis <?php echo $sunday ?> </h6>
+    <a href="#">                                                             <!--  TODO set proper reference -->
+        <button class="btn m-0 p-0" name="calendarPicker" id="calendarPicker">
+            <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
+            <h6><?php echo $monday ?> bis <?php echo $sunday ?></h6>
+        </button>
+    </a>
+    <div class="align-self-center">
+        <a href="#">                                                         <!--  TODO set proper reference -->
+            <button class="btn m-0 p-0" name="statistics" id="statistics">
+                <i class="bi bi-pie-chart" style="font-size:36px;"></i>
             </button>
-        </form>
-    </div>
-    <div class="align-self-center">
-        <button><i class="bi bi-pie-chart" style="font-size:36px;"></i></button>
-        <button><i class="bi bi-gear" style="font-size:36px;"></i></button>
-    </div>
-</div>
+        </a>
+        <a href="#">                                                         <!--  TODO set proper reference -->
+            <button class="btn m-0 p-0" name="settings" id="settings">
+                <i class="bi bi-gear" style="font-size:36px;"></i>
+            </button>
+        </a>
 
-<div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
-    <button class="btn m-0 p-0" name="XXX" id="XXX">
-        <h5 class="mb-0">Weekly Todos</h5>
-        <h6>Anmeldevorgang</h6>
-    </button>
-    <div class="align-self-center">
-        <button class="btn m-0 p-0" name="signup" id="signup">
-            <i class="bi bi-pie-chart" style="font-size:36px;"></i>
-        </button>
-        <button class="btn m-0 p-0" name="signin" id="signin">
-            <i class="bi bi-gear" style="font-size:36px;"></i>
-        </button>
     </div>
 </div>
-
-
 
 <!-- body -->
 <div class="container-flex border p-3 gap-3">
