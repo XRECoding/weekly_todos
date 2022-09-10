@@ -14,6 +14,23 @@
     </div>
 </div>
 
+<div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+    <button class="btn m-0 p-0" name="XXX" id="XXX">
+        <h5 class="mb-0">Weekly Todos</h5>
+        <h6>Anmeldevorgang</h6>
+    </button>
+    <div class="align-self-center">
+        <button class="btn m-0 p-0" name="signup" id="signup">
+            <i class="bi bi-pie-chart" style="font-size:36px;"></i>
+        </button>
+        <button class="btn m-0 p-0" name="signin" id="signin">
+            <i class="bi bi-gear" style="font-size:36px;"></i>
+        </button>
+    </div>
+</div>
+
+
+
 <!-- body -->
 <div class="container-flex border p-3 gap-3">
     <form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
