@@ -1,8 +1,8 @@
 <?= form_open('Registration/index', array('role' => 'form')) ?>
     <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
         <div>
-            <p class="font-weight-bold mb-0">Weekly Todos</p>
-            <p class="font-weight-normal mb-0">Registrierung</p>
+            <h5 class="mb-0">Weekly Todos</h5>
+            <h6>Registrierung</h6>
         </div>
         <div class="align-self-center">
             <button name="cancel" id="cancel" class="btn m-0 p-0">
