@@ -8,7 +8,7 @@
             <button class="btn m-0 p-0" name="signup" id="signup">
                 <i class="bi bi-plus-circle" style="font-size:36px;"></i>
             </button>
-            <button class="btn m-0 p-0" name="signin" id="signin" >
+            <button class="btn m-0 p-0" name="signin" id="signin">
                 <i class="bi bi-check-circle" style="font-size:36px;"></i>
             </button>
         </div>

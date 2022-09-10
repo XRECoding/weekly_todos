@@ -68,7 +68,7 @@ class Validation extends BaseConfig
 
     public $registration_errors = [
         'email'     => [
-            'required'      => 'Sie müssen einen E-Mail angeben.',
+            'required'      => 'Sie müssen eine E-Mail angeben.',
             'valid_email'   => 'Sie müssen eine gültige E-Mail angeben.',
             'is_unique'     => 'Diese E-mail ist bereits vergeben.',
         ],
