@@ -22,6 +22,8 @@ class WeekOverview extends BaseController {
     }
 
     public function button_filter(){
+        if (isset($_POST['settings'])) return redirect()->to(base_url() . '/index.php/settings');
+        
         if (isset($_POST['monday'])){
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }

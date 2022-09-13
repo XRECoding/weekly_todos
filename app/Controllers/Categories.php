@@ -10,7 +10,6 @@ class Categories extends BaseController {
     }
 
     public function index() {
-        helper("form");
         $data['title'] = 'Kategorien';
 
         echo view('templates/header', $data);
