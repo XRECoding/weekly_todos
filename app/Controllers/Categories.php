@@ -12,6 +12,7 @@ class Categories extends BaseController {
     public function index() {
         $data['title'] = 'Kategorien';
         $data['entries'] = $this->CategoryModel->selectCategories();
+        $data['order'] = $this->CategoryModel->selectOrder();
 
 
         echo view('templates/header', $data);
@@ -20,6 +21,8 @@ class Categories extends BaseController {
         echo view('scripts/Categories');
         echo view('templates/Footer');
     }
+
+
 
     public function selectCategory() {
         return json_encode($this->CategoryModel->selectCategory());
@@ -36,4 +39,8 @@ class Categories extends BaseController {
     public function deleteCategory() {
         $this->CategoryModel->deleteCategory();
     }
+
+    public function updateOrder() {
+        $this->CategoryModel->updateOrder();
+    }    
 }

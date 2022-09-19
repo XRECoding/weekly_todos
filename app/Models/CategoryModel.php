@@ -16,6 +16,7 @@ class CategoryModel extends Model {
         return $this->db->
         table('categories')->
         where('userID', $this->session->get('userID'))->
+        orderby('order', 'ASC')->
         get()->getResultArray();
     }
 
@@ -35,7 +36,8 @@ class CategoryModel extends Model {
         table('categories')->
         insert(array(
             'userID' => $this->session->get('userID'),
-            'designation' => $_POST['designation']
+            'designation' => $_POST['designation'],
+            'order' => $_POST['order']
         ));
 
         return $this->db->insertID();
@@ -47,4 +49,26 @@ class CategoryModel extends Model {
         where('categoryID', $_POST['categoryID'])->
         delete();
     }
+
+
+    public function updateOrder() {
+        $this->db->
+        table('categories')->
+        where('categoryID', $_POST['categoryID'])->
+        update(array(
+            'order' => $_POST['order']
+        ));
+    }
+
+    public function selectOrder() {
+        $this->session = \Config\Services::session();
+        
+        return $this->db->
+        table('categories')->
+        select('order')->
+        where('userID', $this->session->get('userID'))->
+        orderby('order', 'ASC')->
+        get()->getRowArray();
+    }
+
 }

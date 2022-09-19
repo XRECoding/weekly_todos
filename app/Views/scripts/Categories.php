@@ -1,18 +1,46 @@
 <script>
     let baseurl = '<?= base_url()?>';
+    let move = false;
 
     jQuery(function($) {
         var panelList = $('#draggablePanelList');
 
         panelList.sortable({
             update: function() {
-                $('.btn-lg', panelList).each(function(index, elem) {
-                    var $listItem = $(elem);
-                    newIndex = $listItem.index();
-                });
+                move = true;
+                testus();
             }
         });
+
     });
+
+
+    function testus() {
+        var items = $("#draggablePanelList").children();
+
+        $.each(items, function(index, value) {
+            if ($(value).attr('name') != $(value).index()) {
+                // alert($(value).attr('name') + " <= Old || New => " + $(value).index());
+
+                $.ajax({
+                    type: "POST",
+                    url: baseurl + "/Categories/updateOrder",
+                    data: {
+                        categoryID: $(value).attr('id'),
+                        order: $(value).index()
+                    },
+                    success: function () {
+                        $(value).html(($(value).index() + 1) + ". " + $(value).html().slice(3)); // TODO: Must be changed
+                        $(value).attr('name', $(value).index());
+                    },
+                    error: function (request, status, error) {
+                        alert("AJAX Error: " + error);
+                    }
+                });
+
+            }
+        });
+    }
 
 
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Start Call Modal //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -25,24 +53,28 @@
     }
 
     function actionUpdate(categoryID) {
-        $.ajax({
-            type: "POST",
-            url: baseurl + "/Categories/selectCategory",
-            data: {
-                categoryID: categoryID
-            },
-            dataType: "json",
-            success: function (data) {
-                $('#designation_edit').val(data.designation);
-                $('#save_edit').attr("onclick", "javascript:updateCategory(" + categoryID + ");");
-                $('#delete_edit').attr("onclick", "javascript:deleteCategory("+categoryID+");");
+        if (move == false) {
+            $.ajax({
+                type: "POST",
+                url: baseurl + "/Categories/selectCategory",
+                data: {
+                    categoryID: categoryID
+                },
+                dataType: "json",
+                success: function (data) {
 
-                $('#modal_edit').modal();
-            },
-            error: function (request, status, error) {
-                alert("AJAX Error: " + error);
-            }
-        });
+                    $('#designation_edit').val(data.designation);
+                    $('#save_edit').attr("onclick", "javascript:updateCategory(" + categoryID + ");");
+                    $('#delete_edit').attr("onclick", "javascript:deleteCategory("+categoryID+");");
+
+                    $('#modal_edit').modal();
+                },
+                error: function (request, status, error) {
+                    alert("AJAX Error: " + error);
+                }
+            });
+        }
+        move = false;
     }
 
 
@@ -54,10 +86,11 @@
             url: baseurl + "/Categories/insertCategory",
             data: {
                 designation: $('#designation_insert').val(),
+                order: $('#draggablePanelList').children().length
             },
             dataType: "json",
             success: function (categoryID) {
-                $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'">'+$('#designation_insert').val()+'</div>');
+                $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'" name="'+($('#draggablePanelList').children().length)+'">' + ($('#draggablePanelList').children().length + 1) + ". " + $('#designation_insert').val()+'</div>');
             },
             error: function (request, status, error) {
                 alert("AJAX Error:" + error);
@@ -74,7 +107,7 @@
                 designation: $('#designation_edit').val()
             },
             success: function (data) {
-                $('#' + categoryID).html($('#designation_edit').val());
+                $('#' + categoryID).html((parseInt($('#' + categoryID).attr("name")) +1) + ". " + $('#designation_edit').val());
             },
             error: function (request, status, error) {
                 alert("AJAX Error: " + error);
@@ -91,6 +124,7 @@
             },
             success: function () {
                 $('#' + categoryID).remove();
+                testus();
             },
             error: function (request, status, error) {
                 alert("AJAX Error:" + error);
