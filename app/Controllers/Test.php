@@ -1,14 +1,10 @@
 <?php namespace App\Controllers;
 use CodeIgniter\Controller;
+use App\Models\CategoryModel;
 
-class Test extends BaseController {
+class test extends BaseController {
 
     public function index() {
-        $data['title'] = 'Registration';
-        
-        echo view('templates/header2', $data);
-        echo view('pages/Test');
-        echo view('scripts/Drag_and_Drop');
-        echo view('templates/Footer');
+        echo view('pages/test');
     }
 }

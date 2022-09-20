@@ -2,35 +2,18 @@
     let baseurl = '<?= base_url()?>';
     let move = false;
 
-    
-
-    new Sortable(draggablePanelList, {
-        animation: 150,
-        ghostClass: 'blue-background-class'
-    });
-
-
-
-    jQuery(function($) {
-        var panelList = $('#draggablePanelList');
-
-        panelList.sortable({
-            update: function() {
-                move = true;
-                testus();
-            }
-        });
-
-    });
-
-
     function testus() {
         var items = $("#draggablePanelList").children();
+            alert("HELLO");
 
         $.each(items, function(index, value) {
-            if ($(value).attr('name') != $(value).index()) {
-                // alert($(value).attr('name') + " <= Old || New => " + $(value).index());
 
+           
+            if ($(value).attr('name') != $(value).index()) {
+                alert($(value).attr('name') + " <= Old || New => " + $(value).index());
+                $(value).html(($(value).index() + 1) + ". " + $(value).html().slice(3)); // TODO: Must be changed
+                        $(value).attr('name', $(value).index());
+ /*
                 $.ajax({
                     type: "POST",
                     url: baseurl + "/Categories/updateOrder",
@@ -46,8 +29,9 @@
                         alert("AJAX Error: " + error);
                     }
                 });
-
+                */
             }
+                    
         });
     }
 

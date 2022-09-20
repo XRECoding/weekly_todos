@@ -8,10 +8,10 @@
     </button>
 </div>
 
-<div class="container-flex m-3" id="draggablePanelList" name="draggablePanelList">
+<div class="column m-3" id="draggablePanelList" name="draggablePanelList">
     <?php
         foreach ($entries as $categories=>$category) {
-            echo '<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('.$category["categoryID"].');" id="'.$category["categoryID"].'" name="'.$category["order"].'">'.($category["order"] + 1).'. '.$category["designation"].'</div>';
+            echo '<div class="btn-lg btn-block border item" onclick="javascript:actionUpdate('.$category["categoryID"].');" id="'.$category["categoryID"].'" name="'.$category["order"].'">'.($category["order"] + 1).'. '.$category["designation"].'</div>';
         }
     ?>
 </div>
