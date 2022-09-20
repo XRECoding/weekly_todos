@@ -2,7 +2,7 @@
 use CodeIgniter\Controller;
 use App\Models\CategoryModel;
 
-class Categories extends BaseController {
+class Test2 extends BaseController {
     public function __construct() {
         $this->CategoryModel = new CategoryModel();
         $this->session = \Config\Services::session();
@@ -16,10 +16,11 @@ class Categories extends BaseController {
 
 
         echo view('templates/header', $data);
+        echo view('pages/Test2');
+        echo view('scripts/Drag_and_Drop');
         echo view('modals/Categories');
-        echo view('pages/Categories');
-        echo view('scripts/Categories');
-        echo view('templates/Footer'); 
+        //echo view('scripts/Categories');
+        echo view('templates/Footer');
     }
 
 

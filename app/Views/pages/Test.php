@@ -21,4 +21,27 @@
 </script>
 <p>Date: <input type="text" id="datepicker"></p>
 -->
-
+<div class="container">
+    <div class="column">
+        <h1>All Tasks</h1>
+        <div class="list-group-item" draggable="true">Wash Clothes</div>
+        <div class="list-group-item" draggable="true">Take a stroll outside</div>
+        <div class="list-group-item" draggable="true">Design Thumbnail</div>
+        <div class="list-group-item" draggable="true">Attend Meeting</div>
+        <div class="list-group-item" draggable="true">Fix workshop</div>
+        <div class="list-group-item" draggable="true">Visit the zoo</div>
+        <button id="save_insert" class="btn btn-success btn-block" data-dismiss="modal">Speichern</button>
+    </div>
+    <div class="column">
+        <h1>In progress</h1>
+    </div>
+    <div class="column">
+        <h1>Paused</h1>
+    </div>
+    <div class="column">
+        <h1>Under Review</h1>
+    </div>
+    <div class="column">
+        <h1>Completed</h1>
+    </div>
+</div>

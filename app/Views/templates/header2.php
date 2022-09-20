@@ -20,6 +20,32 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+    <style>
+.container {
+    font-family: "Trebuchet MS", sans-serif;
+    display: flex;
+    gap: 30px;
+}
+.column {
+    flex-basis: 20%;
+    background: #ddd;
+    min-height: 90vh;
+    padding: 5px;
+    border-radius: 10px;
+}
+.column h1 {
+    text-align: center;
+    font-size: 22px;
+}
+.list-group-item {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
 </head>
 <!-- End Header ---------------------------------------------------------------------------------------------------------------->
 

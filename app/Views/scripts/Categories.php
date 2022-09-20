@@ -2,6 +2,15 @@
     let baseurl = '<?= base_url()?>';
     let move = false;
 
+    
+
+    new Sortable(draggablePanelList, {
+        animation: 150,
+        ghostClass: 'blue-background-class'
+    });
+
+
+
     jQuery(function($) {
         var panelList = $('#draggablePanelList');
 
