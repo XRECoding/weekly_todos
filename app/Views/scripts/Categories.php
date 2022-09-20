@@ -1,19 +1,45 @@
 <script>
+    // TODO: Lade alle Skripte aus dem Ordner Views/scripts als Java Script und nicht als php
     let baseurl = '<?= base_url()?>';
-    let move = false;
+
+    /**
+        * Create elements that can be moved with an mouse and touch.
+        *  
+        *
+        * @example      {@link https://sortablejs.github.io/Sortable}
+        * @documenation {@link https://github.com/SortableJS/Sortable}
+        * @tutorial     {@link https://stackabuse.com/drag-and-drop-in-vanilla-javascript/}
+    */
+
+    const column = document.querySelector('.column');
+
+    new Sortable(column, {
+        animation: 150,
+        ghostClass: 'blue-background-class',
+        onStart: function (/**Event*/evt) {
+            console.log('drag started');
+        },
+        onEnd: function (/**Event*/evt) {
+            testus();
+            console.log('drag ended');
+        }
+    });
+
+
+    /**
+        * Outgoing from the view => Interact with the database and view
+        * 
+        * Iterate over all elements and check if the order has changed
+        * if the order changed than update the element and databse entry
+    */
 
     function testus() {
         var items = $("#draggablePanelList").children();
-            alert("HELLO");
 
         $.each(items, function(index, value) {
-
-           
             if ($(value).attr('name') != $(value).index()) {
-                alert($(value).attr('name') + " <= Old || New => " + $(value).index());
-                $(value).html(($(value).index() + 1) + ". " + $(value).html().slice(3)); // TODO: Must be changed
-                        $(value).attr('name', $(value).index());
- /*
+                // alert($(value).attr('name') + " <= Old || New => " + $(value).index());
+
                 $.ajax({
                     type: "POST",
                     url: baseurl + "/Categories/updateOrder",
@@ -29,14 +55,18 @@
                         alert("AJAX Error: " + error);
                     }
                 });
-                */
+            
             }
                     
         });
     }
 
-
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Start Call Modal //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    /**
+        * Outgoing from the view => Interact with the database and view
+        * 
+        * Functions that will be called if a button of the view has been pressed.
+        * Call the database and change the Modal according to the database
+    */
 
     function actionInsert() {
         $('#designation_insert').val(null);
@@ -46,32 +76,34 @@
     }
 
     function actionUpdate(categoryID) {
-        if (move == false) {
-            $.ajax({
-                type: "POST",
-                url: baseurl + "/Categories/selectCategory",
-                data: {
-                    categoryID: categoryID
-                },
-                dataType: "json",
-                success: function (data) {
+        $.ajax({
+            type: "POST",
+            url: baseurl + "/Categories/selectCategory",
+            data: {
+                categoryID: categoryID
+            },
+            dataType: "json",
+            success: function (data) {
 
-                    $('#designation_edit').val(data.designation);
-                    $('#save_edit').attr("onclick", "javascript:updateCategory(" + categoryID + ");");
-                    $('#delete_edit').attr("onclick", "javascript:deleteCategory("+categoryID+");");
+                $('#designation_edit').val(data.designation);
+                $('#save_edit').attr("onclick", "javascript:updateCategory(" + categoryID + ");");
+                $('#delete_edit').attr("onclick", "javascript:deleteCategory("+categoryID+");");
 
-                    $('#modal_edit').modal();
-                },
-                error: function (request, status, error) {
-                    alert("AJAX Error: " + error);
-                }
-            });
-        }
-        move = false;
+                $('#modal_edit').modal();
+            },
+            error: function (request, status, error) {
+                alert("AJAX Error: " + error);
+            }
+        });
     }
 
 
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Start Call Database //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    /**
+        * Outgoing from the modal => Interact with the database and view
+        *  
+        * Functions that will be called if a button of the Modal has been pressed.
+        * Update the database and change the view according to the Modal
+    */
 
     function insertCategory() {
         $.ajax({
@@ -125,7 +157,5 @@
         });
     }
 
-
-//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ End Call Database //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 </script>

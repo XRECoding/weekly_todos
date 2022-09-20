@@ -17,7 +17,6 @@ class Categories extends BaseController {
 
         echo view('templates/header', $data);
         echo view('pages/Categories');
-        echo view('scripts/test');
         echo view('modals/Categories');
         echo view('scripts/Categories');
         echo view('templates/Footer');
