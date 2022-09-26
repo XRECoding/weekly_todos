@@ -18,7 +18,7 @@ class Login extends BaseController {
 
             if ($this->validation->run($_POST, 'login')) {
                 $this->session->set($this->UserModel->selectUser());
-                #return redirect()->to(base_url().'/Index');
+                return redirect()->to(base_url().'/WeekOverview');
             } else {
                 $data['error'] = $this->validation->getErrors();
             }
