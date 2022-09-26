@@ -1,10 +1,14 @@
 <!-- header -->
-<form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
-    <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
-        <a href="#">                                                             <!--  TODO set proper reference -->
-            <button class="btn m-0 p-0" name="calendarPicker" id="calendarPicker">
-                <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
-                <h6><?php echo $monday ?> bis <?php echo $sunday ?></h6>
+<div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+    <button class="btn m-0 p-0" onclick="javascript:calendarPicker()">
+        <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
+        <h6><?php echo $monday ?> bis <?php echo $sunday ?></h6>
+    </button>
+    <div class="align-self-center">
+        <a href="#">                                                         <!--  TODO set proper reference -->
+            <button class="btn m-0 p-0" name="statistics" id="statistics">
+                <i class="bi bi-pie-chart" style="font-size:36px;"></i>
+
             </button>
         </a>
         <div class="align-self-center">                                                <!--  TODO set proper reference -->
@@ -33,7 +37,54 @@
             <button class="btn-lg btn-block" name="saturday"><b>Samstag</b> <br> den <?php echo $saturday ?></button>
 
             <button class="btn-lg btn-block" name="sunday"><b>Sonntag</b> <br> den <?php echo $sunday ?></button>
-        
+
+<!-- Javascript TODO decide where to store JS Code -->
+<script>
+    function calendarPicker(){
+        $('#calenderPickerModal').modal();
+    }
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="calenderPickerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Choose a date</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--  Modal Body   -->
+                <form action="<?php echo base_url('index.php/WeekOverview/pickDate')?>" method="post">
+                    <container>
+                        <!-- inline CSS to override bootstrap small sized datepicker -->
+                        <style>
+                            .datepicker, .table-condensed {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        </style>
+                        <!-- datepicker -->
+                        <input id="dateInput" name="dateInput" class="form-control">
+                        <div id="my-datepicker""></div>
+
+                        <!-- create the datepicker with JS -->
+                        <script>
+                            $("#my-datepicker").datepicker().on('changeDate', function (e) {
+                                $("#dateInput").val(e.format("dd.mm.yyyy"));
+                            });
+                        </script>
+                    </container>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+        </div>
     </div>
-</form>
+</div>
+
 
