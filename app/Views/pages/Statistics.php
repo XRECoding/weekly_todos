@@ -22,7 +22,7 @@
 <div id="chartContainer" style="height: 100%; width: 100%;"></div>
 <div>
    <?php
-   print_r($endTimes);
+   //print_r($endTimes);
    //foreach ($entries as $e){
    //    echo $e;
    //}

@@ -47,7 +47,7 @@ class Statistics extends BaseController {
         );
 
         echo view('templates/header', $data);
-        //echo view('scripts/statistics');
+        echo view('scripts/statistics');
         echo view('pages/statistics', $data);
         echo view('templates/Footer');
     }
