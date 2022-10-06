@@ -14,6 +14,8 @@ class Categories extends BaseController {
         $data['entries'] = $this->CategoryModel->selectCategories();
         $data['order'] = $this->CategoryModel->selectOrder();
 
+        if (isset($_POST['btnBac'])) return redirect()->to(base_url().'/Settings');
+
 
         echo view('templates/header', $data);
         echo view('pages/Categories');
@@ -21,8 +23,6 @@ class Categories extends BaseController {
         echo view('scripts/Categories');
         echo view('templates/Footer');
     }
-
-
 
     public function selectCategory() {
         return json_encode($this->CategoryModel->selectCategory());
