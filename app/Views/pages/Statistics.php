@@ -19,8 +19,13 @@
 </div>
 
 <!-- body -->
+<div id="chartContainer" style="height: 100%; width: 100%;"></div>
 <div>
-    <script src="<?php echo APPPATH . 'Libraries/lib/js/jquery.min.js'?>">
-    </script>
-    <?php echo $out; ?>
+   <?php
+   print_r($endTimes);
+   //foreach ($entries as $e){
+   //    echo $e;
+   //}
+   ?>
 </div>
+

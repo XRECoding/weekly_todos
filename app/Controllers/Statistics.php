@@ -1,46 +1,53 @@
 <?php namespace App\Controllers;
+use App\Models\CategoryModel;
+use App\Models\StatisticsModel;
 use CodeIgniter\Controller;
 include (APPPATH . 'Libraries/lib/inc/chartphp_dist.php');
 
 class Statistics extends BaseController {
 
+    public function __construct() {
+        $this->StatisticsModel = new StatisticsModel();
+        $this->session = \Config\Services::session();
+    }
+
     public function index() {
         $data['title'] = 'Statistics';
 
-
         $data['today'] = date('d.m.Y');
+        //$data['p'] = new \chartphp();
+
+        // creating array with all categories of the user
+        $data['categories'] = array();
+        foreach ($this->StatisticsModel->getCategories() as $rowArray){
+            foreach ($rowArray as $category) {
+                array_push($data['categories'], $category);
+            }
+        }
+
+        // adding all the time spent
+        $data['endTimes'] = array();
+        foreach ($data['categories'] as $category){
+            array_push($data['endTimes'], $this->StatisticsModel->getEntries($category));
+        }
+
+        $startingTimes = array();
+        foreach ($data['categories'] as $category){
+            array_push($startingTimes, $this->StatisticsModel->getStartingTimes($category));
+        }
 
 
-        $data['p'] = new \chartphp();
 
-        // set few params
-        $data['p']->data = array(
-            array(
-                array("2010/12",48.25),
-                array("2011/01",238.75),
-                array("2011/02",95.50),
-                array("2011/03",300.50),
-                array("2011/04",286.80),
-                array("2011/05",148.25),
-                array("2011/06",128.75),
-                array("2011/07",95.50)
-            )
+        // creating data points for the bar chart
+        $data['dataPoints'] = array(
+            // TODO
+            array("y" => 7,"label" => "Uni" ),
+            array("y" => 12,"label" => "Arbeit" ),
+            array("y" => 28,"label" => "Freizeit" )
         );
-        $data['p']->chart_type = "bar";
-        $data['p']->title = "Bar Chart";
-        $data['p']->xlabel = "Months";
-        $data['p']->ylabel = "Purchase";
-        $data['p']->show_xticks = true;
-        $data['p']->show_yticks = true;
-        $data['p']->show_point_label = true;
-
-        // render chart and get html/js output
-        $data['out'] = $data['p']->render('c1');
-
-
-
 
         echo view('templates/header', $data);
+        //echo view('scripts/statistics');
         echo view('pages/statistics', $data);
         echo view('templates/Footer');
     }

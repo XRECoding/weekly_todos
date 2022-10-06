@@ -34,6 +34,8 @@
     <script src="<?php echo APPPATH . 'Libraries/lib/js/jquery.min.js'?>"></script>
     <script src="<?php echo APPPATH . 'Libraries/lib/js/chartphp.js'?>"></script>
 
+    <!-- another chart try -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <!-- End Header ---------------------------------------------------------------------------------------------------------------->
 
