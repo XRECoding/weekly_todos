@@ -1,16 +1,18 @@
 <form method="post" action="<?php echo base_url('index.php/Categories/index')?>">
     <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
-        <button class="btn m-0 p-0 text-left" name="btnBac" id="btnBac">
-            <h5 class="mb-0">Weekly Todos</h5>
-            <h6 class="mb-0">Kategorien</h6>
-        </button>
+        <div>
+            <button name="back" id="back" class="btn m-0 p-0 pr-2">
+                <i class="bi-arrow-left-circle" style="font-size:32px;"></i>
+            </button>
+            <div class="btn text-left m-0 p-0">
+                <h5 class="mb-0">Weekly Todos</h5>
+                <h6 class="mb-0">Einstellungen</h6>
+            </div>
+        </div>
+
         <div class="align-self-center">
-            <div class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:actionInsert();">
-                <i class="bi bi-plus-circle" style="font-size:32px;"></i>
-            </div>
-            <div class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:$('#info').modal();" >
-                <i class="bi bi-info-circle" style="font-size:32px;"></i>
-            </div>
+            <i class="bi bi-info-circle" style="font-size:32px;" onclick="javascript:$('#info').modal();"></i>
+            <i class="bi bi-plus-circle" style="font-size:32px;" onclick="javascript:actionInsert();"></i>
         </div>    
     </div>
 

@@ -17,6 +17,8 @@ class DailyTodos extends BaseController {
         $data['entries'] = $this->EntryModel->selectEntries();
         $data['categories'] = $this->CategoryModel->selectCategories();
 
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');
+
         echo view('templates/header', $data);
         echo view('pages/DailyTodos');
         echo view('modals/DailyTodos', $data);
