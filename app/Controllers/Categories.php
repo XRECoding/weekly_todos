@@ -24,6 +24,13 @@ class Categories extends BaseController {
         echo view('templates/Footer');
     }
 
+    public function btnAction() {
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');# Todo: Must be changed
+        
+        unset($_SESSION["email"]);
+        return redirect()->to(base_url().'/Login');
+    }
+
     public function selectCategory() {
         return json_encode($this->CategoryModel->selectCategory());
     }

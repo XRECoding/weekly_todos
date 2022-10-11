@@ -15,7 +15,7 @@
                 <button class="btn m-0 p-0" name="statistics" id="statistics">
                     <i class="bi bi-pie-chart" style="font-size:32px;"></i>
                 </button>
-                <button class="btn m-0 p-0" name="settings" id="settings">
+                <button class="btn m-0 p-0" name="categories" id="categories">
                     <i class="bi bi-gear" style="font-size:32px;"></i>
                 </button>
             </form>
