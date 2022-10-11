@@ -5,16 +5,19 @@
             <h6 class="mb-0">Kategorien</h6>
         </button>
         <div class="align-self-center">
-            <button class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:actionInsert();">
+            <div class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:actionInsert();">
                 <i class="bi bi-plus-circle" style="font-size:32px;"></i>
-            </button>
+            </div>
+            <div class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:$('#info').modal();" >
+                <i class="bi bi-info-circle" style="font-size:32px;"></i>
+            </div>
         </div>    
     </div>
 
     <div class="column m-3" id="draggablePanelList" name="draggablePanelList">
         <?php
             foreach ($entries as $categories=>$category) {
-                echo '<div class="btn-lg btn-block border item" onclick="javascript:actionUpdate('.$category["categoryID"].');" id="'.$category["categoryID"].'" name="'.$category["order"].'">'.($category["order"] + 1).'. '.$category["designation"].'</div>';
+                echo '<div class="btn-lg btn-block border item" onclick="javascript:actionUpdate('.$category["categoryID"].');" id="'.$category["categoryID"].'" name="'.$category["order"].'">'.$category["designation"].'</div>';
             }
         ?>
     </div>

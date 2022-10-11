@@ -50,7 +50,7 @@
                         order: $(value).index()
                     },
                     success: function () {
-                        $(value).html(($(value).index() + 1) + ". " + $(value).html().slice(3)); // TODO: Must be changed
+                        // $(value).html(($(value).index() + 1) + ". " + $(value).html().slice(3)); // TODO: Must be changed
                         $(value).attr('name', $(value).index());
                     },
                     error: function (request, status, error) {
