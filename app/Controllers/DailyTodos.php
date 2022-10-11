@@ -50,4 +50,8 @@ class DailyTodos extends BaseController {
     public function deleteEntry() {
         $this->EntryModel->deleteEntry();
     }
+
+    public function updateOrder() {
+        $this->EntryModel->updateOrder();
+    }   
 }

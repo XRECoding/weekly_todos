@@ -68,4 +68,13 @@ class EntryModel extends Model {
         delete();
     }
 
+    public function updateOrder() {
+        $this->db->
+        table('entries')->
+        where('entryID', $_POST['entryID'])->
+        update(array(
+            'order' => $_POST['order']
+        ));
+    }
+
 }

@@ -10,16 +10,6 @@
         * @documenation {@link https://github.com/SortableJS/Sortable}
         * @tutorial     {@link https://stackabuse.com/drag-and-drop-in-vanilla-javascript/}
     */
-
-    /**
-        * ~~ Titel
-        *  
-        * ~~ Beschreibung was der Code macht
-        *
-        * @example      {@link https://sortablejs.github.io/Sortable}
-        * @documenation {@link https://github.com/SortableJS/Sortable}
-        * @tutorial     {@link https://stackabuse.com/drag-and-drop-in-vanilla-javascript/}
-    */
     
     const column = document.querySelector('.column');
 
@@ -34,6 +24,8 @@
             console.log('drag ended');
         }
     });
+
+
 
 
     /**

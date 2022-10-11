@@ -20,11 +20,11 @@
                 foreach ($entries as $entry=>$entry2) {
                     if ($entry1["categoryID"] == $entry2["categoryID"]) {
                         if (strlen($entry2["completed"]) != 0 & strlen($entry2["started"]) != 0) {
-                            echo '<div class="btn-block" id="'.$entry2["entryID"].'"onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-check-circle" style="color:green"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
+                            echo '<div class="btn-block item" id="'.$entry2["entryID"].'" name="'.$entry2["order"].'" onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-check-circle" style="color:green"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
                         } elseif (strlen($entry2["started"]) != 0) {
-                            echo '<div class="btn-block" id="'.$entry2["entryID"].'"onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-stop-circle" style="color:blue"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
+                            echo '<div class="btn-block item" id="'.$entry2["entryID"].'" name="'.$entry2["order"].'" onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-stop-circle" style="color:blue"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
                         } else {
-                            echo '<div class="btn-block" id="'.$entry2["entryID"].'"onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-circle"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
+                            echo '<div class="btn-block item" id="'.$entry2["entryID"].'" name="'.$entry2["order"].'" onclick="javascript:actionUpdate('.$entry2["entryID"].')"><i class="bi bi-circle"></i>'." ".$entry2["designation"].', '.$entry2["description"].'</div>';
                         }
 
                     }
