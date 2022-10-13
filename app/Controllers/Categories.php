@@ -14,7 +14,7 @@ class Categories extends BaseController {
         $data['entries'] = $this->CategoryModel->selectCategories();
         $data['order'] = $this->CategoryModel->selectOrder();
 
-        if (isset($_POST['back'])) return redirect()->to(base_url().'/Settings');
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');
 
 
         echo view('templates/header', $data);
