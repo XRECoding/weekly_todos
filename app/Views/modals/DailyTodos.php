@@ -99,3 +99,21 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="info" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Infos zu den Kategorien</h5>
+            </div>
+            <div class="modal-body">
+                <p>Erstelle, bearbeiten oder lösche To-dos. Durch Drag-and-drop kann die Reihenfolge der To-dos angepasst werden. Hast du ein To-do angefangen oder beendet, so wird er dementsprechend angezeigt.</p>
+            </div>
+            <div class="modal-footer" id="footer">
+                <button id="close" class="btn btn-primary" data-dismiss="modal">Schließen</button>
+            </div>
+        </div>
+    </div>
+</div>

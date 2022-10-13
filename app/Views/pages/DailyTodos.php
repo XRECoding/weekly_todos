@@ -5,14 +5,13 @@
                 <i class="bi-arrow-left-circle" style="font-size:32px;"></i>
             </button>
             <div class="btn text-left m-0 p-0">
-                <h5 class="mb-0">Weekly Todos</h5>
-                <h6 class="mb-0">Tageseinsicht</h6>
+                <h5 class="mb-0">Todos für Donnerstag</h5>
+                <h6 class="mb-0">den 24.08.2022</h6>
             </div>
         </div>
         <div class="align-self-center">
-            <div class="btn float-right m-0 p-0" name="add" id="add" onclick="javascript:actionInsert();">
-                <i class="bi bi-plus-circle" style="font-size:32px;"></i>
-            </div>
+            <i class="bi bi-info-circle" style="font-size:32px;" onclick="javascript:$('#info').modal();"></i>
+            <i class="bi bi-plus-circle" style="font-size:32px;" onclick="javascript:actionInsert();"></i>
         </div>
     </div>
 
