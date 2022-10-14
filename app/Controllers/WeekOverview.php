@@ -4,10 +4,17 @@ use CodeIgniter\Controller;
 
 class WeekOverview extends BaseController {
 
+    public function __construct() {
+        $this->session = \Config\Services::session();
+    }
+
     public function index() {
         $data['title'] = 'WeekOverview';
 
         $data['week'] = date("W"); //  calender week
+
+        $_SESSION['selectedDate'] = date('d.m.Y', strtotime("today"));  // defaults to today
+
         // calculates the date for the individual days of the week
         $data['monday'] = date('d.m.Y', strtotime("this week monday"));
         $data['tuesday'] = date('d.m.Y', strtotime("this week tuesday"));
@@ -67,6 +74,9 @@ class WeekOverview extends BaseController {
      */
     public function pickDate(){
         $data['title'] = 'WeekOverview';
+
+        // putting the selected date into the session, overwriting the default date of today
+        $_SESSION['selectedDate'] = date('d.m.Y', strtotime($_POST["dateInput"]));
 
         // calculating new calendar week
         $date = new \DateTime(date('d.m.Y', strtotime($_POST["dateInput"])));
