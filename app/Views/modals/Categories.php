@@ -48,7 +48,7 @@
                 <h5 class="modal-title">Infos zu den Kategorien</h5>
             </div>
             <div class="modal-body">
-                <p>Erstelle oder bearbeite Kategorien, welche dann automatisch im To-do Fenster erscheinen. Durch Drag-and-drop können die Priorisierungen der Kategorien angepasst werden.</p>
+                <p>Erstelle oder bearbeite Kategorien, welche dann automatisch im To-do Fenster erscheinen. Durch Drag-and-drop kann die Reihenfolge der Kategorien angepasst werden.</p>
             </div>
             <div class="modal-footer" id="footer">
                 <button id="close" class="btn btn-primary" data-dismiss="modal">Schließen</button>

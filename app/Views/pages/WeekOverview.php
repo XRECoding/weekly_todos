@@ -1,20 +1,26 @@
 <!-- header -->
-<div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
-    <button class="btn m-0 p-0" onclick="javascript:calendarPicker()">
-        <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
-        <h6><?php echo $monday ?> bis <?php echo $sunday ?></h6>
-    </button>
+    <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+        <div>
+            <button name="back" id="back" class="btn m-0 p-0 pr-2">
+                <i class="bi-calendar-week" style="font-size:32px;" onclick="javascript:calendarPicker()"></i>
+            </button>
+            <button class="btn m-0 p-0">
+                <h5 class="mb-0"><?php echo $week ?>te Kalenderwoche</h5>
+                <h6 class="mb-0"><?php echo $monday ?> bis <?php echo $sunday ?></h6>
+            </button>
+        </div>
+
         <div class="align-self-center">
             <form method="post" action="<?php echo base_url('index.php/WeekOverview/redirect_filter')?>">
                 <button class="btn m-0 p-0" name="statistics" id="statistics">
-                    <i class="bi bi-pie-chart" style="font-size:36px;"></i>
+                    <i class="bi bi-pie-chart" style="font-size:32px;"></i>
                 </button>
-                <button class="btn m-0 p-0" name="settings" id="settings">
-                    <i class="bi bi-gear" style="font-size:36px;"></i>
+                <button class="btn m-0 p-0" name="categories" id="categories">
+                    <i class="bi bi-gear" style="font-size:32px;"></i>
                 </button>
             </form>
-        </div>
-</div>
+        </div> 
+    </div>
 
 
     <!-- body -->
