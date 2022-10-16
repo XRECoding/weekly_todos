@@ -7,37 +7,33 @@ class StatisticsModel extends Model {
         $this->session = \Config\Services::session();
 
         return $this->db->
-        table('categories')->
+        table('entries')->
         select('designation')->
         where('userID', $this->session->get('userID'))->
         orderby('order', 'ASC')->
+        distinct()->
         get()->getResultArray();
     }
 
-    public function getEntries($category) {
-        // TODO
+
+
+
+
+
+
+
+
+    public function getTimeSpent($category, $date) {
+        // TODO make prepared statements to avoid SQL Injection
         $this->session = \Config\Services::session();
 
-        return $this->db->
-        table('entries')->
-        select('completed')->
-        where('userID', $this->session->get('userID'))->
-        where('designation', $category)->
-        orderby('order', 'ASC')->
-        get()->getResultArray();
+        $user = $this->session->get('userID');
+
+        $result = $this->db->query("
+        SELECT sum(completed-started) as '$category'
+        FROM entries
+        WHERE designation = '$category' and userID = $user and date = '$date'");
+
+        return $result->getRowArray();
     }
-
-    public function getStartingTimes($category) {
-        // TODO
-        $this->session = \Config\Services::session();
-
-        return $this->db->
-        table('entries')->
-        select('started')->
-        where('userID', $this->session->get('userID'))->
-        where('designation', $category)->
-        orderby('order', 'ASC')->
-        get()->getResultArray();
-    }
-
 }
