@@ -107,8 +107,8 @@ class WeekOverview extends BaseController {
             return redirect()->to(base_url() . '/index.php/statistics');
         }
 
-        if (isset($_POST['settings'])){
-            return redirect()->to(base_url() . '/index.php/settings');
+        if (isset($_POST['categories'])){
+            return redirect()->to(base_url() . '/index.php/categories');
         }
     }
 }

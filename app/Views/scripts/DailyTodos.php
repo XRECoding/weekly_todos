@@ -1,6 +1,54 @@
 <script>
     let baseurl = '<?= base_url()?>';
 
+    const columns = document.querySelectorAll(".card-body");
+
+
+    
+    columns.forEach((column) => {
+        new Sortable(column, {
+            animation: 150,
+            ghostClass: "blue-background-class",
+            onStart: function (/**Event*/evt) {
+                console.log('drag started');
+            },
+            onEnd: function (/**Event*/evt) {
+                console.log('drag ended');
+                checkOrder();
+
+            },
+            onChange: function(/**Event*/evt) {
+                console.log(evt.newIndex); 
+            }
+        });
+    });
+
+    function checkOrder() {
+        const items = document.querySelectorAll(".btn-block");
+                    
+        $.each(items, function(index, value) {
+            if ($(value).attr('name') != $(value).index()) {
+                console.log($(value).attr('name') + " || " + $(value).index()) 
+
+                $.ajax({
+                    type: "POST",
+                    url: baseurl + "/DailyTodos/updateOrder",
+                    data: {
+                        entryID: $(value).attr('id'),
+                        order: $(value).index()
+                    },
+                    success: function () {
+                        $(value).attr('name', $(value).index());
+                    },
+                    error: function (request, status, error) {
+                        alert("AJAX Error: " + error);
+                    }
+                });
+            }
+        });
+    }
+   
+
 
 
     /**
@@ -95,13 +143,15 @@
                         $('#designation_insert').removeClass('is-invalid');
                         $('#error_designation_insert').html("");
                     }
-                } else {                    
+                } else {          
+                    const myLength = $("#"+$('#category_insert option:selected').attr('id')).children().length;
+                    
                     if (($('#started_insert').val()).length != 0 && ($('#completed_insert').val()).length != 0) {
-                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-check-circle" style="color:green"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
+                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" name="'+myLength+'" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-check-circle" style="color:green"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
                     } else if (($('#started_insert').val()).length != 0) {
-                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-stop-circle" style="color:blue"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
+                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" name="'+myLength+'" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-stop-circle" style="color:blue"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
                     } else {
-                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-circle"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
+                        $("#"+$('#category_insert option:selected').attr('id')).append('<div class="btn-block" name="'+myLength+'" id="'+data+'"onclick="javascript:actionUpdate('+data+')"><i class="bi bi-circle"></i> '+$('#designation_insert').val()+', '+$('#description_insert').val()+'</div>');
                     }
                 $("#modal_insert").modal('hide');
                 }

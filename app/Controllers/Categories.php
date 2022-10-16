@@ -14,7 +14,7 @@ class Categories extends BaseController {
         $data['entries'] = $this->CategoryModel->selectCategories();
         $data['order'] = $this->CategoryModel->selectOrder();
 
-        if (isset($_POST['btnBac'])) return redirect()->to(base_url().'/Settings');
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');
 
 
         echo view('templates/header', $data);
@@ -22,6 +22,13 @@ class Categories extends BaseController {
         echo view('modals/Categories');
         echo view('scripts/Categories');
         echo view('templates/Footer');
+    }
+
+    public function btnAction() {
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');# Todo: Must be changed
+        
+        unset($_SESSION["email"]);
+        return redirect()->to(base_url().'/Login');
     }
 
     public function selectCategory() {
