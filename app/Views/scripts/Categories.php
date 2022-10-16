@@ -117,7 +117,7 @@
             },
             dataType: "json",
             success: function (categoryID) {
-                $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'" name="'+($('#draggablePanelList').children().length)+'">' + ($('#draggablePanelList').children().length + 1) + ". " + $('#designation_insert').val()+'</div>');
+                $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'" name="'+($('#draggablePanelList').children().length)+'">'+$('#designation_insert').val()+'</div>');
             },
             error: function (request, status, error) {
                 alert("AJAX Error:" + error);
@@ -134,7 +134,7 @@
                 designation: $('#designation_edit').val()
             },
             success: function (data) {
-                $('#' + categoryID).html((parseInt($('#' + categoryID).attr("name")) +1) + ". " + $('#designation_edit').val());
+                $('#' + categoryID).html($('#designation_edit').val());
             },
             error: function (request, status, error) {
                 alert("AJAX Error: " + error);

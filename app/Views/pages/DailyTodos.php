@@ -1,5 +1,5 @@
 <form method="post" action="<?php echo base_url('index.php/DailyTodos/index')?>">
-    <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+    <div class="d-flex justify-content-between border-bottom p-2">
         <div>
             <button name="back" id="back" class="btn m-0 p-0 pr-2">
                 <i class="bi-arrow-left-circle" style="font-size:32px;"></i>
