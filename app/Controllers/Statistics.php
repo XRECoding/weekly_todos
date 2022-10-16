@@ -15,7 +15,7 @@ class Statistics extends BaseController {
         $data['title'] = 'Statistics';
 
         $data['today'] = date('d.m.Y');
-        //$data['p'] = new \chartphp();
+        //$data['today'] = $_SESSION['selectedDate'];
 
         // creating array with all categories of the user
         $data['categories'] = array();
@@ -25,26 +25,20 @@ class Statistics extends BaseController {
             }
         }
 
-        // adding all the time spent
-        $data['endTimes'] = array();
+        // get the time spent for each category
+        $data['timeSpent'] = array();
         foreach ($data['categories'] as $category){
-            array_push($data['endTimes'], $this->StatisticsModel->getEntries($category));
+           array_push($data['timeSpent'], $this->StatisticsModel->getTimeSpent($category));
         }
-
-        $startingTimes = array();
-        foreach ($data['categories'] as $category){
-            array_push($startingTimes, $this->StatisticsModel->getStartingTimes($category));
-        }
-
-
 
         // creating data points for the bar chart
-        $data['dataPoints'] = array(
-            // TODO
-            array("y" => 7,"label" => "Uni" ),
-            array("y" => 12,"label" => "Arbeit" ),
-            array("y" => 28,"label" => "Freizeit" )
-        );
+        $data['dataPoints'] = array();
+
+        foreach ($data['timeSpent'] as $entry){
+            foreach ($entry as $designation=>$timeSpent){
+                array_push($data['dataPoints'], array("y" => $timeSpent, "label" => $designation));
+            }
+        }
 
         echo view('templates/header', $data);
         echo view('scripts/statistics');
