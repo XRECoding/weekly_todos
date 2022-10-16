@@ -39,30 +39,37 @@ class WeekOverview extends BaseController {
         if (isset($_POST['settings'])) return redirect()->to(base_url() . '/index.php/settings');
 
         if (isset($_POST['monday'])){
+            $_SESSION['selectedDate'] = $_POST['monday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['tuesday'])){
+            $_SESSION['selectedDate'] = $_POST['tuesday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['wednesday'])){
+            $_SESSION['selectedDate'] = $_POST['wednesday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['thursday'])){
+            $_SESSION['selectedDate'] = $_POST['thursday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['friday'])){
+            $_SESSION['selectedDate'] = $_POST['friday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['saturday'])){
+            $_SESSION['selectedDate'] = $_POST['saturday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
 
         if (isset($_POST['sunday'])){
+            $_SESSION['selectedDate'] = $_POST['sunday'];
             return redirect()->to(base_url() . '/index.php/registration');  // TODO set correct link once page is created
         }
     }

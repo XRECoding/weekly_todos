@@ -26,19 +26,19 @@
 <!-- body -->
 <div class="container-flex border p-3 gap-3">
         <form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
-            <button class="btn-md btn-block" name="monday"><b>Montag</b> <br> den <?php echo $monday ?></button>
+            <button class="btn-md btn-block" name="monday" value="<?php echo $monday ?>"><b>Montag</b> <br> den <?php echo $monday ?></button>
 
-            <button class="btn-md btn-block" name="tuesday"><b>Dienstag</b> <br> den <?php echo $tuesday ?></button>
+            <button class="btn-md btn-block" name="tuesday" value="<?php echo $tuesday ?>"><b>Dienstag</b> <br> den <?php echo $tuesday ?></button>
 
-            <button class="btn-md btn-block" name="wednesday"><b>Mittwoch</b> <br> den <?php echo $wednesday ?></button>
+            <button class="btn-md btn-block" name="wednesday" value="<?php echo $wednesday ?>"><b>Mittwoch</b> <br> den <?php echo $wednesday ?></button>
 
-            <button class="btn-md btn-block" name="thursday"><b>Donnerstag</b> <br> den <?php echo $thursday ?></button>
+            <button class="btn-md btn-block" name="thursday" value="<?php echo $thursday ?>"><b>Donnerstag</b> <br> den <?php echo $thursday ?></button>
 
-            <button class="btn-md btn-block" name="friday"><b>Freitag</b> <br> den <?php echo $friday ?></button>
+            <button class="btn-md btn-block" name="friday" value="<?php echo $friday ?>"><b>Freitag</b> <br> den <?php echo $friday ?></button>
 
-            <button class="btn-md btn-block" name="saturday"><b>Samstag</b> <br> den <?php echo $saturday ?></button>
+            <button class="btn-md btn-block" name="saturday" value="<?php echo $saturday ?>"><b>Samstag</b> <br> den <?php echo $saturday ?></button>
 
-            <button class="btn-md btn-block" name="sunday"><b>Sonntag</b> <br> den <?php echo $sunday ?></button>
+            <button class="btn-md btn-block" name="sunday" value="<?php echo $sunday ?>"><b>Sonntag</b> <br> den <?php echo $sunday ?></button>
         </form>
 
         <!-- Modal -->
