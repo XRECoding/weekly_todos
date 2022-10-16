@@ -58,8 +58,6 @@ class Validation extends BaseConfig
         ],
     ];
 
-
-
     public $registration = [
         'email'     => 'required|valid_email|is_unique[users.email]',
         'password1' => 'required|min_length[5]',
@@ -81,5 +79,21 @@ class Validation extends BaseConfig
             'matches'       => 'Das wiederholte Passwort stimmt nicht mit der erstellen überein.',
         ],
     ];
+
+    public $entry = [
+        'categoryID'        => 'required',
+        'designation'       => 'required'
+    ];
+
+    public $entry_errors = [
+        'categoryID' => [
+            'required'      => 'Sie müssen eine Kategorie wählen.',
+            'differs'       => 'Sie müssen eine Kategorie wählen.'
+        ],
+        'designation' => [
+            'required'      => 'Sie müssen eine Bezeichnung wählen.'
+        ],
+    ];
+
 
 }

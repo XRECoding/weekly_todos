@@ -18,7 +18,7 @@ class Settings extends BaseController {
     }
 
     public function btnAction() {
-        if (isset($_POST['btnBac'])) return redirect()->to(base_url().'/WeekOverview');
+        if (isset($_POST['back'])) return redirect()->to(base_url().'/WeekOverview');
         if (isset($_POST['btnCat'])) return redirect()->to(base_url().'/Categories'); # Todo: Must be changed
         
         unset($_SESSION["email"]);
