@@ -15,7 +15,7 @@ class Statistics extends BaseController {
         $data['title'] = 'Statistics';
 
         $data['today'] = date('d.m.Y');
-        //$data['today'] = $_SESSION['selectedDate'];
+        $data['today'] = $_SESSION['selectedDate'];
 
         // creating array with all categories of the user
         $data['categories'] = array();
@@ -28,7 +28,7 @@ class Statistics extends BaseController {
         // get the time spent for each category
         $data['timeSpent'] = array();
         foreach ($data['categories'] as $category){
-           array_push($data['timeSpent'], $this->StatisticsModel->getTimeSpent($category));
+           array_push($data['timeSpent'], $this->StatisticsModel->getTimeSpent($category, $_SESSION['selectedDate']));
         }
 
         // creating data points for the bar chart

@@ -23,7 +23,7 @@ class StatisticsModel extends Model {
 
 
 
-    public function getTimeSpent($category) {
+    public function getTimeSpent($category, $date) {
         // TODO make prepared statements to avoid SQL Injection
         $this->session = \Config\Services::session();
 
@@ -32,7 +32,7 @@ class StatisticsModel extends Model {
         $result = $this->db->query("
         SELECT sum(completed-started) as '$category'
         FROM entries
-        WHERE designation = '$category' and userID = $user and date = '16.10.2022'");
+        WHERE designation = '$category' and userID = $user and date = '$date'");
 
         return $result->getRowArray();
     }
