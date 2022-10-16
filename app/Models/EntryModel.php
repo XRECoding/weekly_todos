@@ -9,6 +9,7 @@ class EntryModel extends Model {
         return $this->db->
         table('entries')->
         where('userID', $this->session->get('userID'))->
+        where('date', $this->session->get('selectedDate'))->
         orderby('order', 'ASC')->
         get()->getResultArray();
     }

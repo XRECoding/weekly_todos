@@ -5,8 +5,8 @@
                 <i class="bi-arrow-left-circle" style="font-size:32px;"></i>
             </button>
             <div class="btn text-left m-0 p-0">
-                <h5 class="mb-0">Todos für Donnerstag</h5>
-                <h6 class="mb-0">den 24.08.2022</h6>
+                <h5 class="mb-0">Todos für <?= $wochentag ?></h5>
+                <h6 class="mb-0">den <?= $selectedDate ?></h6>
             </div>
         </div>
         <div class="align-self-center">
