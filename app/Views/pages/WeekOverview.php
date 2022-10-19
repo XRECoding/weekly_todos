@@ -64,7 +64,7 @@
                                 </style>
                                 <!-- datepicker -->
                                 <input id="dateInput" name="dateInput" class="form-control">
-                                <div id="my-datepicker""></div>
+                                <div id="my-datepicker"></div>
 
                     <!-- create the datepicker with JS -->
                     <script>
@@ -75,8 +75,8 @@
                     </container>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
-                    <button type="submit" class="btn btn-primary">Bestätigen</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
+                    <button type="submit" class="btn btn-success">Bestätigen</button>
                 </div>
             </div>
         </div>
