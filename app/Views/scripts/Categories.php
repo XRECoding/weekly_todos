@@ -71,6 +71,8 @@
     */
 
     function actionInsert() {
+        $('#designation_insert').removeClass('is-invalid');
+        $('#error_designation_insert').html("");
         $('#designation_insert').val(null);
         $('#save_insert').attr("onclick", "javascript:insertCategory();");
 
@@ -78,6 +80,9 @@
     }
 
     function actionUpdate(categoryID) {
+        $('#designation_edit').removeClass('is-invalid');
+        $('#error_designation_edit').html("");
+
         $.ajax({
             type: "POST",
             url: baseurl + "/Categories/selectCategory",
@@ -108,55 +113,69 @@
     */
 
     function insertCategory() {
-        $.ajax({
-            type: "POST",
-            url: baseurl + "/Categories/insertCategory",
-            data: {
-                designation: $('#designation_insert').val(),
-                order: $('#draggablePanelList').children().length
-            },
-            dataType: "json",
-            success: function (categoryID) {
-                $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'" name="'+($('#draggablePanelList').children().length)+'">'+$('#designation_insert').val()+'</div>');
-            },
-            error: function (request, status, error) {
-                alert("AJAX Error:" + error);
-            }
-        });
+        if($('#designation_insert').val() == "") {
+            $('#designation_insert').addClass('is-invalid');
+            $('#error_designation_insert').html("Bitte geben Sie eine Bezeichnung an.");
+        } else {
+            $.ajax({
+                type: "POST",
+                url: baseurl + "/Categories/insertCategory",
+                data: {
+                    designation: $('#designation_insert').val(),
+                    order: $('#draggablePanelList').children().length
+                },
+                dataType: "json",
+                success: function (categoryID) {
+                    $('#draggablePanelList').append('<div class="btn-lg btn-block border" onclick="javascript:actionUpdate('+categoryID+');" id="'+categoryID+'" name="'+($('#draggablePanelList').children().length)+'">'+$('#designation_insert').val()+'</div>');
+                    $("#modal_insert").modal('hide');
+                },
+                error: function (request, status, error) {
+                    alert("AJAX Error:" + error);
+                }
+            });
+        }
     }
 
     function updateCategory(categoryID) {
-        $.ajax({
-            type: "POST",
-            url: baseurl + "/Categories/updateCategory",
-            data: {
-                categoryID: categoryID,
-                designation: $('#designation_edit').val()
-            },
-            success: function (data) {
-                $('#' + categoryID).html($('#designation_edit').val());
-            },
-            error: function (request, status, error) {
-                alert("AJAX Error: " + error);
-            }
-        });
+        if($('#designation_edit').val() == "") {
+            $('#designation_edit').addClass('is-invalid');
+            $('#error_designation_edit').html("Bitte geben Sie eine Bezeichnung an.");
+        } else {
+            $.ajax({
+                type: "POST",
+                url: baseurl + "/Categories/updateCategory",
+                data: {
+                    categoryID: categoryID,
+                    designation: $('#designation_edit').val()
+                },
+                success: function (data) {
+                    $('#' + categoryID).html($('#designation_edit').val());
+                    $("#modal_edit").modal('hide');
+                },
+                error: function (request, status, error) {
+                    alert("AJAX Error: " + error);
+                }
+            });
+        }
     }
 
     function deleteCategory(categoryID) {
-        $.ajax({
-            type: "POST",
-            url: baseurl + "/Categories/deleteCategory",
-            data: {
-                categoryID: categoryID
-            },
-            success: function () {
-                $('#' + categoryID).remove();
-                testus();
-            },
-            error: function (request, status, error) {
-                alert("AJAX Error:" + error);
-            }
-        });
+        if (confirm("Alle Einträge die zu dieser Kategorie gehören werden ebenfalls gelöscht!")) {
+            $.ajax({
+                type: "POST",
+                url: baseurl + "/Categories/deleteCategory",
+                data: {
+                    categoryID: categoryID
+                },
+                success: function () {
+                    $('#' + categoryID).remove();
+                    testus();
+                },
+                error: function (request, status, error) {
+                    alert("AJAX Error:" + error);
+                }
+            });
+        }
     }
 
 
