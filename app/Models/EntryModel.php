@@ -15,6 +15,8 @@ class EntryModel extends Model {
     }
 
     public function selectEntry() {
+        $this->session = \Config\Services::session();
+
         return $this->db->
         table(array('entries', 'categories'))->
         select(array(
@@ -27,13 +29,17 @@ class EntryModel extends Model {
         ))->
         where("categories.categoryID = entries.categoryID")->
         where('entryID', $_POST['entryID'])->
+        where('entries.userID', $this->session->get('userID'))->
         get()->getRowArray();
     }
 
     public function updateEntry() {
+        $this->session = \Config\Services::session();
+
         $this->db->
         table('entries')->
         where('entryID', $_POST['entryID'])->
+        where('userID', $this->session->get('userID'))->
         update(array(
             'categoryID'    => $_POST['categoryID'],
             'designation'   => $_POST['designation'],
@@ -43,7 +49,6 @@ class EntryModel extends Model {
         ));
     }
 
-    // TODO: Date is not set!
     public function insertEntry() {
         $this->session = \Config\Services::session();
 
@@ -56,23 +61,30 @@ class EntryModel extends Model {
             'description'   => $_POST['description'],
             'started'       => $_POST['started'],
             'completed'     => $_POST['completed'],
-            'order'         => $_POST['order']
+            'order'         => $_POST['order'],
+            'date'          => $this->session->get('selectedDate')
         ));
 
         return $this->db->insertID();
     }
 
     public function deleteEntry() {
+        $this->session = \Config\Services::session();
+
         $this->db->
         table('entries')->
         where('entryID', $_POST['entryID'])->
+        where('userID', $this->session->get('userID'))->
         delete();
     }
 
     public function updateOrder() {
+        $this->session = \Config\Services::session();
+        
         $this->db->
         table('entries')->
         where('entryID', $_POST['entryID'])->
+        where('userID', $this->session->get('userID'))->
         update(array(
             'order' => $_POST['order']
         ));
