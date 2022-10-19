@@ -32,7 +32,7 @@ class WeekOverview extends BaseController {
     }
 
     /**
-     * This method redirects the user to day specific to-do-list.
+     * This method redirects the user to the day specific to-do-list.
      * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function button_filter(){

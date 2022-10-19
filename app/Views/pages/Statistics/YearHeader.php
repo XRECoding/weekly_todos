@@ -4,21 +4,26 @@
         <h5 class="mb-0">Statistiken</h5>
     </button>
     <div class="align-self-center">
-        <form method="post" action="<?php echo base_url('index.php/Statistics/index')?>">
-            <button class="btn m-0 p-0" name="left">
+        <form method="post" action="<?php echo base_url('index.php/Statistics/button_filter')?>">
+
+
+
+            <button class="btn m-0 p-0" name="monthStatistics">
+                <i class="bi bi-calendar-minus" style="font-size:36px;"></i>
+            </button>
+
+            <button class="btn m-0 p-0" name="yearPrev">
                 <i class="bi bi-arrow-left" style="font-size:36px;"></i>
             </button>
-            <button class="btn m-0 p-0" name="right">
+            <button class="btn m-0 p-0" name="yearNext">
                 <i class="bi bi-arrow-right" style="font-size:36px;"></i>
             </button>
+
+
+
             <button class="btn m-0 p-0" name="settings" id="settings">
                 <i class="bi bi-gear" style="font-size:36px;"></i>
             </button>
         </form>
     </div>
 </div>
-
-<!-- body -->
-<div id="chartContainer" style="height: 100%; width: 100%;"></div>
-
-
