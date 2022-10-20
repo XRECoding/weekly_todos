@@ -20,7 +20,7 @@ class Statistics extends BaseController {
 
         // creating array with all categories of the user
         $data['categories'] = array();
-        foreach ($this->StatisticsModel->getCategories() as $rowArray){
+        foreach ($this->StatisticsModel->getDailyCategories($_SESSION['selectedDate']) as $rowArray){
             foreach ($rowArray as $category) {
                 array_push($data['categories'], $category);
             }
@@ -29,7 +29,7 @@ class Statistics extends BaseController {
         // get the time spent for each category
         $data['timeSpent'] = array();
         foreach ($data['categories'] as $category){
-           array_push($data['timeSpent'], $this->StatisticsModel->getTimeSpent($category, $_SESSION['selectedDate']));
+           array_push($data['timeSpent'], $this->StatisticsModel->getDailyTimeSpent($category, $_SESSION['selectedDate']));
         }
 
         // creating data points for the bar chart
@@ -150,7 +150,7 @@ class Statistics extends BaseController {
 
         // creating array with all categories of the user
         $data['categories'] = array();
-        foreach ($this->StatisticsModel->getCategories() as $rowArray){
+        foreach ($this->StatisticsModel->getDailyCategories($_SESSION['selectedDate']) as $rowArray){
             foreach ($rowArray as $category) {
                 array_push($data['categories'], $category);
             }
@@ -159,7 +159,7 @@ class Statistics extends BaseController {
         // get the time spent for each category
         $data['timeSpent'] = array();
         foreach ($data['categories'] as $category){
-            array_push($data['timeSpent'], $this->StatisticsModel->getTimeSpent($category, $_SESSION['selectedDate']));
+            array_push($data['timeSpent'], $this->StatisticsModel->getDailyTimeSpent($category, $_SESSION['selectedDate']));
         }
 
         // creating data points for the bar chart

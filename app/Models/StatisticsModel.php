@@ -7,13 +7,14 @@ class StatisticsModel extends Model {
      * This function retrieves all the todos of a user
      * @return array       The result array
      */
-    public function getCategories() {
+    public function getDailyCategories($date) {
         $this->session = \Config\Services::session();
 
         return $this->db->
         table('entries')->
         select('designation')->
         where('userID', $this->session->get('userID'))->
+        where('date', $date) ->
         orderby('order', 'ASC')->
         distinct()->
         get()->getResultArray();
@@ -26,7 +27,7 @@ class StatisticsModel extends Model {
      * @return array|mixed|null     The result array
      * @throws \Exception
      */
-    public function getTimeSpent($category, $date) {
+    public function getDailyTimeSpent($category, $date) {
         // TODO make prepared statements to avoid SQL Injection
         $this->session = \Config\Services::session();
 
