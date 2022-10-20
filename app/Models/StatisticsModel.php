@@ -27,7 +27,7 @@ class StatisticsModel extends Model {
      * @return array|mixed|null     The result array
      * @throws \Exception
      */
-    public function getDailyTimeSpent($category, $date) {
+    public function getDailyTimeByCategory($category, $date) {
         // TODO make prepared statements to avoid SQL Injection
         $this->session = \Config\Services::session();
 
@@ -37,6 +37,25 @@ class StatisticsModel extends Model {
         SELECT sum(completed-started) as '$category'
         FROM entries
         WHERE designation = '$category' and userID = $user and date = '$date'");
+
+        return $result->getRowArray();
+    }
+
+    /**
+     * This function retrieves the sum of all the time spent on the specific date
+     * @param $date                 The wanted date
+     * @return array|mixed|null     The result array
+     * @throws \Exception
+     */
+    public function getDailyTimeSum($date){
+        $this->session = \Config\Services::session();
+
+        $user = $this->session->get('userID');
+
+        $result = $this->db->query("
+        SELECT sum(completed-started) as '$date'
+        FROM entries
+        WHERE userID = $user and date = '$date'");
 
         return $result->getRowArray();
     }
