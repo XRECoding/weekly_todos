@@ -188,12 +188,28 @@ class Statistics extends BaseController {
         $data['statisticsHeader'] = $date->format("W") . 'te Kalenderwoche';
 
         // todo query h/day
-        $data['dataPoints'] = array(
-            // TODO
-            array("y" => 7,"label" => "Uni" ),
-            array("y" => 12,"label" => "Arbeit" ),
-            array("y" => 28,"label" => "Freizeit" )
-        );
+        $DateTime = new \DateTime();
+        $DateTime -> setISODate(date('Y', strtotime($_SESSION['selectedDate'])), $data['statisticsHeader']);
+
+        $data['monday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['tuesday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['wednesday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['thursday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['friday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['saturday'] = $DateTime -> format('d.m.Y');
+        $DateTime -> modify('+1 Day');
+        $data['sunday'] = $DateTime -> format('d.m.Y');
+
+
+
+
+        $data['dataPoints'] = array();
+
 
         echo view('templates/header', $data);
         echo view('scripts/statistics');

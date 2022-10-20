@@ -3,6 +3,10 @@ use CodeIgniter\Model;
 
 class StatisticsModel extends Model {
 
+    /**
+     * This function retrieves all the todos of a user
+     * @return array       The result array
+     */
     public function getCategories() {
         $this->session = \Config\Services::session();
 
@@ -15,14 +19,13 @@ class StatisticsModel extends Model {
         get()->getResultArray();
     }
 
-
-
-
-
-
-
-
-
+    /**
+     * This function retrieves all the time spent for a specific to-do on a specific day
+     * @param $category             The name of the to-do
+     * @param $date                 The date of the to-do
+     * @return array|mixed|null     The result array
+     * @throws \Exception
+     */
     public function getTimeSpent($category, $date) {
         // TODO make prepared statements to avoid SQL Injection
         $this->session = \Config\Services::session();
