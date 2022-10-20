@@ -41,11 +41,7 @@ class Statistics extends BaseController {
             }
         }
 
-        echo view('templates/header', $data);
-        echo view('scripts/statistics');
-        echo view('pages/statistics/dayHeader', $data);
-        echo view('pages/statistics/body', $data);
-        echo view('templates/Footer');
+        $this->showDay();
     }
 
     /**
