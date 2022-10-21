@@ -36,7 +36,7 @@ class StatisticsModel extends Model {
         $result = $this->db->query("
         SELECT sum(completed-started) as '$category'
         FROM entries
-        WHERE designation = '$category' and userID = $user and date = '$date' and length(completed) != 0");
+        WHERE designation = '$category' and userID = $user and date = '$date' and length(completed) != 0 and length(started) != 0");
 
         return $result->getRowArray();
     }
@@ -55,7 +55,7 @@ class StatisticsModel extends Model {
         $result = $this->db->query("
         SELECT sum(completed-started) as '$date'
         FROM entries
-        WHERE userID = $user and date = '$date' and length(completed) != 0");
+        WHERE userID = $user and date = '$date' and length(completed) != 0 and length(started) != 0");
 
         return $result->getRowArray();
     }
