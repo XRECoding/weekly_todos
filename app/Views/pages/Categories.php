@@ -6,7 +6,7 @@
             </button>
             <div class="btn text-left m-0 p-0">
                 <h5 class="mb-0">Weekly Todos</h5>
-                <h6 class="mb-0">Einstellungen</h6>
+                <h6 class="mb-0">Kategorien</h6>
             </div>
         </div>
 
