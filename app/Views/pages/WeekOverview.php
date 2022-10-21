@@ -1,5 +1,5 @@
 <!-- header -->
-    <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+    <div class="d-flex justify-content-between border-bottom p-2">
         <div>
             <button name="back" id="back" class="btn m-0 p-0 pr-2">
                 <i class="bi-calendar-week" style="font-size:32px;" onclick="javascript:calendarPicker()"></i>
@@ -24,21 +24,21 @@
 
 
 <!-- body -->
-<div class="container-flex border p-3 gap-3">
+<div class="container-flex p-2 gap-3">
         <form method="post" action="<?php echo base_url('index.php/WeekOverview/button_filter')?>">
-            <button class="btn-md btn-block" name="monday"><b>Montag</b> <br> den <?php echo $monday ?></button>
+            <button class="btn btn-block border" name="monday" value="<?php echo $monday ?>"><b>Montag</b> <br> den <?php echo $monday ?></button>
 
-            <button class="btn-md btn-block" name="tuesday"><b>Dienstag</b> <br> den <?php echo $tuesday ?></button>
+            <button class="btn btn-block border" name="tuesday" value="<?php echo $tuesday ?>"><b>Dienstag</b> <br> den <?php echo $tuesday ?></button>
 
-            <button class="btn-md btn-block" name="wednesday"><b>Mittwoch</b> <br> den <?php echo $wednesday ?></button>
+            <button class="btn btn-block border" name="wednesday" value="<?php echo $wednesday ?>"><b>Mittwoch</b> <br> den <?php echo $wednesday ?></button>
 
-            <button class="btn-md btn-block" name="thursday"><b>Donnerstag</b> <br> den <?php echo $thursday ?></button>
+            <button class="btn btn-block border" name="thursday" value="<?php echo $thursday ?>"><b>Donnerstag</b> <br> den <?php echo $thursday ?></button>
 
-            <button class="btn-md btn-block" name="friday"><b>Freitag</b> <br> den <?php echo $friday ?></button>
+            <button class="btn btn-block border" name="friday" value="<?php echo $friday ?>"><b>Freitag</b> <br> den <?php echo $friday ?></button>
 
-            <button class="btn-md btn-block" name="saturday"><b>Samstag</b> <br> den <?php echo $saturday ?></button>
+            <button class="btn btn-block border" name="saturday" value="<?php echo $saturday ?>"><b>Samstag</b> <br> den <?php echo $saturday ?></button>
 
-            <button class="btn-md btn-block" name="sunday"><b>Sonntag</b> <br> den <?php echo $sunday ?></button>
+            <button class="btn btn-block border" name="sunday" value="<?php echo $sunday ?>"><b>Sonntag</b> <br> den <?php echo $sunday ?></button>
         </form>
 
         <!-- Modal -->
@@ -64,7 +64,7 @@
                                 </style>
                                 <!-- datepicker -->
                                 <input id="dateInput" name="dateInput" class="form-control">
-                                <div id="my-datepicker""></div>
+                                <div id="my-datepicker"></div>
 
                     <!-- create the datepicker with JS -->
                     <script>
@@ -75,8 +75,8 @@
                     </container>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
-                    <button type="submit" class="btn btn-primary">Bestätigen</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
+                    <button type="submit" class="btn btn-success">Bestätigen</button>
                 </div>
             </div>
         </div>

@@ -4,9 +4,12 @@ use CodeIgniter\Model;
 class CategoryModel extends Model {
 
     public function selectCategory() {
+        $this->session = \Config\Services::session();
+
         return $this->db->
         table('categories')->
         where('categoryID', $_POST['categoryID'])->
+        where('userID', $this->session->get('userID'))->
         get()->getRowArray();
     }
 
@@ -21,9 +24,12 @@ class CategoryModel extends Model {
     }
 
     public function updateCategory() {
+        $this->session = \Config\Services::session();
+        
         $this->db->
         table('categories')->
         where('categoryID', $_POST['categoryID'])->
+        where('userID', $this->session->get('userID'))->
         update(array(
             'designation' => $_POST['designation']
         ));
@@ -44,17 +50,23 @@ class CategoryModel extends Model {
     }
 
     public function deleteCategory() {
+        $this->session = \Config\Services::session();
+
         $this->db->
         table('categories')->
         where('categoryID', $_POST['categoryID'])->
+        where('userID', $this->session->get('userID'))->
         delete();
     }
 
 
     public function updateOrder() {
+        $this->session = \Config\Services::session();
+
         $this->db->
         table('categories')->
         where('categoryID', $_POST['categoryID'])->
+        where('userID', $this->session->get('userID'))->
         update(array(
             'order' => $_POST['order']
         ));

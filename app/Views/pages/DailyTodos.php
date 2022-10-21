@@ -1,12 +1,12 @@
 <form method="post" action="<?php echo base_url('index.php/DailyTodos/index')?>">
-    <div class="d-flex justify-content-between border pb-2 pt-2 pl-3 pr-3">
+    <div class="d-flex justify-content-between border-bottom p-2">
         <div>
             <button name="back" id="back" class="btn m-0 p-0 pr-2">
                 <i class="bi-arrow-left-circle" style="font-size:32px;"></i>
             </button>
             <div class="btn text-left m-0 p-0">
-                <h5 class="mb-0">Todos für Donnerstag</h5>
-                <h6 class="mb-0">den 24.08.2022</h6>
+                <h5 class="mb-0">Todos für <?= $wochentag ?></h5>
+                <h6 class="mb-0">den <?= $selectedDate ?></h6>
             </div>
         </div>
         <div class="align-self-center">
