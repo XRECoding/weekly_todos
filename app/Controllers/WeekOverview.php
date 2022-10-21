@@ -32,7 +32,7 @@ class WeekOverview extends BaseController {
     }
 
     /**
-     * This method redirects the user to day specific to-do-list.
+     * This method redirects the user to the day specific to-do-list.
      * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function button_filter(){
@@ -42,24 +42,28 @@ class WeekOverview extends BaseController {
             $_SESSION['selectedDate'] = $_POST['monday'];
             $_SESSION['wochentag'] = 'Montag';
             return redirect()->to(base_url() . '/index.php/DailyTodos');  // TODO set correct link once page is created
+
         }
 
         if (isset($_POST['tuesday'])){
             $_SESSION['selectedDate'] = $_POST['tuesday'];
             $_SESSION['wochentag'] = 'Dienstag';
             return redirect()->to(base_url() . '/index.php/DailyTodos');  // TODO set correct link once page is created
+
         }
 
         if (isset($_POST['wednesday'])){
             $_SESSION['selectedDate'] = $_POST['wednesday'];
             $_SESSION['wochentag'] = 'Mittwoch';
             return redirect()->to(base_url() . '/index.php/DailyTodos');  // TODO set correct link once page is created
+
         }
 
         if (isset($_POST['thursday'])){
             $_SESSION['selectedDate'] = $_POST['thursday'];
             $_SESSION['wochentag'] = 'Donnerstag';
             return redirect()->to(base_url() . '/index.php/DailyTodos');  // TODO set correct link once page is created
+
         }
 
         if (isset($_POST['friday'])){
@@ -72,6 +76,7 @@ class WeekOverview extends BaseController {
             $_SESSION['selectedDate'] = $_POST['saturday'];
             $_SESSION['wochentag'] = 'Samstag';
             return redirect()->to(base_url() . '/index.php/DailyTodos');  // TODO set correct link once page is created
+
         }
 
         if (isset($_POST['sunday'])){

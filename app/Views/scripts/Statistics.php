@@ -5,7 +5,7 @@
             animationEnabled: true,
             title:{
                 fontSize: 22,
-                text: "Zeitübersicht <?php echo $today ?>"
+                text: "Zeitübersicht <?php echo $statisticsHeader ?>"
             },
             axisY: {
                 title: "Zeit in Stunden",
