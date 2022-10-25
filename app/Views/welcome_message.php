@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
     <!-- STYLES -->
+
     <style {csp-style-nonce}>
         * {
             transition: background-color 300ms ease, color 300ms ease;
@@ -193,8 +194,6 @@
     </style>
 </head>
 <body>
-    
-
 
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
